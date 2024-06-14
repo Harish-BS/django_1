@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class employee(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
@@ -14,17 +15,29 @@ class employee(models.Model):
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
     
-
+########################################################################################################
 
 class employee_role(models.Model):
-    role = models.CharField(max_length=100, null=True)
+    STATUS = (('MANAGER','MANAGER'),
+              ('SUPERVISOR','SUPERVISOR'),
+              ('ASSISTANT MANAGER','ASSISTANT MANAGER')
+              )
     
+    role = models.CharField(max_length=100, null=True, choices=STATUS)
+    empl = models.ForeignKey(employee,null = True, on_delete=models.SET_NULL)
     def __str__(self):
         return self.role
     
+#######################################################################################################
+    
 class employee_dept(models.Model):
-    dept = models.CharField(max_length=100, null=True)
+    STATUS = (('SALES','SALES'),
+              ('RND','RND'),
+              ('HR','HR')
+              )
 
+    dept = models.CharField(max_length=100, null=True, choices=STATUS)
+    empl = models.ForeignKey(employee,null = True, on_delete=models.SET_NULL)
     def __str__(self):
         return self.dept
 

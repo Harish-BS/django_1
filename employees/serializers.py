@@ -11,9 +11,9 @@ class employeesSerializers(serializers.ModelSerializer):
 class employee_roleSerializers(serializers.ModelSerializer):
     class Meta:
         model = employee_role
-        fields = ['id', 'role']
+        fields = ['id','empl','role']
 
 class employee_deptSerializers(serializers.ModelSerializer):
     class Meta:
         model = employee_dept
-        fields = ['id','dept']
+        fields = ['id','empl','dept']

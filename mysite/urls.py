@@ -28,4 +28,8 @@ urlpatterns = [
     #path('api-auth/', include('rest_framework.urls'))
     path('employee/', views.employee_list),
     path('employee/<int:id>', views.employee_detail),
+    path('employee_role/', views.employee_role_list),
+    path('employee_role/<int:id>', views.employee_role_detail),
+    path('employee_dept/', views.employee_dept_list),
+    path('employee_dept/<int:id>', views.employee_dept_detail),
  ] + static(settings.MEDIA_URL,documents_root=settings.MEDIA_ROOT)

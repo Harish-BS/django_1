@@ -13,3 +13,18 @@ class employee(models.Model):
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
+    
+
+
+class employee_role(models.Model):
+    role = models.CharField(max_length=100, null=True)
+    
+    def __str__(self):
+        return self.role
+    
+class employee_dept(models.Model):
+    dept = models.CharField(max_length=100, null=True)
+
+    def __str__(self):
+        return self.dept
+
